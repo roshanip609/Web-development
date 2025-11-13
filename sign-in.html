@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayStation® Official Site: Consoles, Games, Accessories & More</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            text-decoration: none;
+            list-style: none;
+        }
+
+        body {
+            background: #fff;
+            color: #333;
+        }
+
+        a { color: #0070d1; }
+
+        /* ===== NAVBAR ===== */
+        .sony-mark {
+            background: #000;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .sony-mark img {
+            height: 25px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            padding: 0 2rem;
+            height: 70px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .ps-logo img {
+            height: 40px;
+        }
+
+        .nav-option {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        .nav-option:hover {
+            color: #0070d1;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .sign-in-button {
+            background: #0070d1;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .sign-in-button:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        .search-icon a {
+            color: #666;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .search-icon a:hover {
+            color: #0070d1;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .banner-section {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+        }
+
+        .banner-bg {
+            position: relative;
+            height: 100%;
+        }
+
+        .banner-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .banner-content {
+            position: absolute;
+            bottom: 40px;
+            left: 50px;
+            color: white;
+            z-index: 10;
+        }
+
+        .para-one {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .para-two {
+            font-size: 1.1rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .banner-btn {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .learn-button, .watch-button {
+            background: #0070d1;
+            color: white;
+            border: 2px solid transparent;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .learn-button:hover, .watch-button:hover {
+            background: white;
+            color: #0070d1;
+            border-color: #0070d1;
+            transform: translateY(-3px);
+        }
+
+        /* ===== GAMES BANNER ===== */
+        .secondary-content {
+            padding: 2rem;
+            background: #f5f5f5;
+        }
+
+        .games-banner {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .box img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .box img:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* ===== PRODUCTS ===== */
+        .product {
+            padding: 3rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .product-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .primary-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .sec-title {
+            color: #0070d1;
+            font-size: 1.3rem;
+            font-weight: 400;
+        }
+
+        .sub-para {
+            color: #666;
+            margin: 1rem 0 2rem;
+        }
+
+        .prod-btn {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .find-more-btn, .buy-now-btn {
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .find-more-btn {
+            background: #0070d1;
+            color: white;
+        }
+
+        .find-more-btn:hover {
+            border-color: #ff6b6b;
+        }
+
+        .buy-now-btn {
+            background: #d53b00;
+            color: white;
+        }
+
+        .buy-now-btn:hover {
+            border-color: #0070d1;
+        }
+
+        .more-product {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .prod-box {
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .prod-box img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+        }
+
+        .prod-box:hover {
+            transform: scale(1.05);
+        }
+
+        /* ===== NEW RELEASES ===== */
+        .new-release {
+            background: #000;
+            color: white;
+            padding: 3rem 2rem;
+        }
+
+        .main-section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .status-btn {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .new-release-btn, .comming-soon-btn {
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .new-release-btn.active {
+            background: white;
+            color: #000;
+        }
+
+        .games-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .individual-game {
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .game-poster img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .individual-game:hover .game-poster img {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0,112,209,0.5);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #00439c;
+            color: white;
+            padding: 3rem 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .nav-list h4 {
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .nav-list ul li {
+            margin: 0.5rem 0;
+        }
+
+        .nav-list ul li a {
+            color: white;
+            transition: color 0.3s;
+        }
+
+        .nav-list ul li a:hover {
+            color: #aaa;
+        }
+
+        /* ===== MODALS ===== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+        }
+
+        .modal-overlay.active {
+            display: block;
+        }
+
+        .learn-more-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            border-radius: 10px;
+            z-index: 1001;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .learn-more-modal.active {
+            display: block;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: -8px;
+            right: 5px;
+            background: #f0f0f0;
+            border: 2px solid #ddd;
+            font-size: 1rem;
+            cursor: pointer;
+            color: #333;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .close-modal:hover {
+            background: #e0e0e0;
+            border-color: #999;
+        }
+
+        /* ===== SIGN IN MODAL ===== */
+        #signInModal {
+            display: none;
+        }
+
+        #signInModal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            width: 350px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        .modal-content h2 {
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 0.95rem;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #0070d1;
+            box-shadow: 0 0 5px rgba(0,112,209,0.3);
+        }
+
+        .modal-content button {
+            width: 100%;
+            padding: 10px;
+            background: #0070d1;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .modal-content button:hover {
+            background: #0056b3;
+        }
+
+        .error-msg {
+            color: #d32f2f;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .success-msg {
+            color: #388e3c;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .user-info {
+            display: none;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .user-info p {
+            color: #666;
+            margin: 0.5rem 0;
+        }
+
+        .logout-btn {
+            background: #d32f2f !important;
+            margin-top: 1rem;
+        }
+
+        .logout-btn:hover {
+            background: #b71c1c !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <div class="sony-mark">
+        <img src="https://www.svgrepo.com/show/2351/sony.svg" alt="Sony">
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="ps-logo">
+                <img src="https://www.svgrepo.com/show/303380/playstation-4-ps4-logo.svg" alt="PS">
+            </div>
+            <select class="nav-option"><option>Games</option></select>
+            <select class="nav-option"><option>PS5</option></select>
+            <select class="nav-option"><option>PS4</option></select>
+            <select class="nav-option"><option>Services</option></select>
+            <select class="nav-option"><option>Accessories</option></select>
+            <select class="nav-option"><option>Support</option></select>
+        </div>
+        <div class="nav-right">
+            <button class="sign-in-button">Sign In</button>
+            <div class="search-icon"><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></div>
+        </div>
+    </nav>
+
+    <!-- HERO BANNER -->
+    <section class="banner-section">
+        <div class="banner-bg">
+            <img src="https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=1200&h=600&fit=crop" alt="Hero">
+            <div class="banner-content">
+                <p class="para-one">Experience the Next Generation</p>
+                <p class="para-two">Play the latest and greatest games on PlayStation 5</p>
+                <div class="banner-btn">
+                    <button class="learn-button">Learn More</button>
+                    <button class="watch-button">Watch Trailer</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GAMES SHOWCASE -->
+    <section class="secondary-content">
+        <div class="games-banner">
+            <div class="box"><img src="https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=300&h=200&fit=crop" alt="Game 1"></div>
+            <div class="box"><img src="https://images.unsplash.com/photo-1538481143235-a0ae5e6c80cc?w=300&h=200&fit=crop" alt="Game 2"></div>
+            <div class="box"><img src="https://images.unsplash.com/photo-1576174065919-51f3bc33013f?w=300&h=200&fit=crop" alt="Game 3"></div>
+            <div class="box"><img src="https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=300&h=200&fit=crop" alt="Game 4"></div>
+            <div class="box"><img src="https://images.unsplash.com/photo-1538481143235-a0ae5e6c80cc?w=300&h=200&fit=crop" alt="Game 5"></div>
+            <div class="box"><img src="https://images.unsplash.com/photo-1576174065919-51f3bc33013f?w=300&h=200&fit=crop" alt="Game 6"></div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section class="product">
+        <div class="product-content">
+            <div class="product-info">
+                <span class="primary-title">Discover all PS5 consoles and accessories</span>
+                <span class="sec-title">PlayStation 5 Console</span>
+                <p class="sub-para">Experience an all-new generation of incredible PlayStation games.</p>
+                <div class="prod-btn">
+                    <a href="#" class="find-more-btn">Find out more</a>
+                    <a href="#" class="buy-now-btn">Buy Now</a>
+                </div>
+                <p class="buy-rate">Buy from <b>$499.99</b></p>
+            </div>
+            <img src="https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=600&h=600&fit=crop" alt="PS5">
+        </div>
+
+        <div class="more-product">
+            <div class="prod-box">
+                <img src="https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=300&h=300&fit=crop" alt="">
+                <p>PS5 Console</p>
+            </div>
+            <div class="prod-box">
+                <img src="https://images.unsplash.com/photo-1576174065919-51f3bc33013f?w=300&h=300&fit=crop" alt="">
+                <p>PS5 Pro</p>
+            </div>
+            <div class="prod-box">
+                <img src="https://images.unsplash.com/photo-1538481143235-a0ae5e6c80cc?w=300&h=300&fit=crop" alt="">
+                <p>Dual Sense Controller</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW RELEASES -->
+    <section class="new-release">
+        <div class="main-section-title">Great PS4 & PS5 games out now or coming soon</div>
+        <div class="status-btn">
+            <button class="new-release-btn active">New Release</button>
+            <button class="comming-soon-btn">Coming Soon</button>
+        </div>
+        <div class="games-content">
+            <div class="individual-game">
+                <div class="game-poster"><img src="https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=300&h=400&fit=crop" alt=""></div>
+                <div class="game-name"><p>ASTRO BOT</p></div>
+            </div>
+            <div class="individual-game">
+                <div class="game-poster"><img src="https://images.unsplash.com/photo-1538481143235-a0ae5e6c80cc?w=300&h=400&fit=crop" alt=""></div>
+                <div class="game-name"><p>DOOM: The Dark Ages</p></div>
+            </div>
+            <div class="individual-game">
+                <div class="game-poster"><img src="https://images.unsplash.com/photo-1576174065919-51f3bc33013f?w=300&h=400&fit=crop" alt=""></div>
+                <div class="game-name"><p>Elder Scrolls IV</p></div>
+            </div>
+            <div class="individual-game">
+                <div class="game-poster"><img src="https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=300&h=400&fit=crop" alt=""></div>
+                <div class="game-name"><p>Indiana Jones</p></div>
+            </div>
+            <div class="individual-game">
+                <div class="game-poster"><img src="https://images.unsplash.com/photo-1538481143235-a0ae5e6c80cc?w=300&h=400&fit=crop" alt=""></div>
+                <div class="game-name"><p>Days Gone</p></div>
+            </div>
+            <div class="individual-game">
+                <div class="game-poster"><img src="https://images.unsplash.com/photo-1576174065919-51f3bc33013f?w=300&h=400&fit=crop" alt=""></div>
+                <div class="game-name"><p>Forza Horizon 5</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <h3 style="margin-bottom: 2rem;">PlayStation</h3>
+        <div class="footer-content">
+            <div class="nav-list">
+                <h4>About</h4>
+                <ul>
+                    <li><a href="#">About SIE</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">PlayStation Studio</a></li>
+                </ul>
+            </div>
+            <div class="nav-list">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="#">PS5</a></li>
+                    <li><a href="#">PS4</a></li>
+                    <li><a href="#">PS Plus</a></li>
+                </ul>
+            </div>
+            <div class="nav-list">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Support Hub</a></li>
+                    <li><a href="#">Safety</a></li>
+                    <li><a href="#">Repairs</a></li>
+                </ul>
+            </div>
+            <div class="nav-list">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Developers</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr style="margin: 2rem 0; opacity: 0.3;">
+        <p style="text-align: center; opacity: 0.8;">© 2025 Sony Interactive Entertainment. All rights reserved.</p>
+    </footer>
+
+    <!-- SIGN IN MODAL -->
+    <div id="signInOverlay" class="modal-overlay"></div>
+    <div id="signInModal" class="modal-overlay" style="display: flex; justify-content: center; align-items: center;">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <h2>Sign In</h2>
+            <form id="signInForm">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" placeholder="your@email.com" required>
+                    <div class="error-msg" id="emailError"></div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" placeholder="Enter password" required>
+                    <div class="error-msg" id="passwordError"></div>
+                </div>
+                <button type="submit">Login</button>
+                <div class="error-msg" id="loginError"></div>
+                <div class="success-msg" id="successMsg">Login successful!</div>
+            </form>
+            <div class="user-info" id="userInfo">
+                <p id="userDisplay"></p>
+                <button class="logout-btn">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sign In Logic
+        const signInBtn = document.querySelector('.sign-in-button');
+        const signInModal = document.getElementById('signInModal');
+        const overlay = document.getElementById('signInOverlay');
+        const closeBtn = document.querySelector('.close-modal');
+        const form = document.getElementById('signInForm');
+        const userInfo = document.getElementById('userInfo');
+        const userDisplay = document.getElementById('userDisplay');
+        const logoutBtn = document.querySelector('.logout-btn');
+        let currentUser = null;
+
+        // Open modal
+        signInBtn.addEventListener('click', () => {
+            signInModal.classList.add('active');
+        });
+
+        // Close modal
+        const closeModal = () => {
+            signInModal.classList.remove('active');
+            form.reset();
+            document.getElementById('loginError').style.display = 'none';
+            document.getElementById('successMsg').style.display = 'none';
+        };
+
+        closeBtn.addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
+        overlay.addEventListener('click', closeModal);
+
+        // Form submission
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            if (!email || !password) {
+                document.getElementById('loginError').textContent = 'Please fill in all fields';
+                document.getElementById('loginError').style.display = 'block';
+                return;
+            }
+
+            if (email === 'user@example.com' && password === 'password123') {
+                currentUser = email;
+                form.style.display = 'none';
+                userInfo.style.display = 'block';
+                userDisplay.textContent = `Welcome, ${email}!`;
+                document.getElementById('successMsg').style.display = 'block';
+            } else {
+                document.getElementById('loginError').textContent = 'Invalid email or password';
+                document.getElementById('loginError').style.display = 'block';
+            }
+        });
+
+        // Logout
+        logoutBtn.addEventListener('click', () => {
+            currentUser = null;
+            form.style.display = 'block';
+            userInfo.style.display = 'none';
+            form.reset();
+            document.getElementById('loginError').style.display = 'none';
+            document.getElementById('successMsg').style.display = 'none';
+        });
+
+        // Close on Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !currentUser) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
